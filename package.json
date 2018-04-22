@@ -1,0 +1,31 @@
+{
+  "name": "team-finder",
+  "version": "1.0.0",
+  "description": "find the ideal online gamming clan or team",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SigmaVX/Team-Finder.git"
+  },
+  "keywords": [
+    "gameroster.com",
+    "teams",
+    "clans",
+    "players"
+  ],
+  "author": "Tony Wible",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SigmaVX/Team-Finder/issues"
+  },
+  "homepage": "https://github.com/SigmaVX/Team-Finder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}

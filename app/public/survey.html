@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=100, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Roster - Team Finder</title>
+
+     <!-- Bootsrap CSS, AJAX, & jQuery CDN Links -->
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+ 
+     <!-- CSS & Font Files --> 
+     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+     <link rel="icon" href="./assets/images/Sigma.png">
+     <link type="text/css" rel="stylesheet" href="./assets/css/style.css">
+
+
+</head>
+<body>
+    <!-- Splash Area -->
+    <div class="row jumbotron text-center" id="survey-splash">
+        <div class="col-12" id="survey-splash-text">
+        <h1>Find Your Perfect Team</h1>
+        <h3>Answer The Questions Below To Get Started</h3>
+        </div>
+    </div> 
+
+    <!-- Form Start -->
+    <form>
+        <div class="form-row justify-content-around">
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row justify-content-around">
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q3">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q4">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row justify-content-around">
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q5">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q6">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row justify-content-around">
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q7">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q8">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row justify-content-around">
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q9">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+            <div class="form-group col-md-5 col-12">
+                <label for="">Example select</label>
+                <select class="form-control" id="q10">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="row justify-content-around pt-4" id="survey-submit-div">
+            <button type="submit" class="btn col-md-4 col-12" id="survey-submit">Submit</button>
+        </div>
+    </form>
+
+
+    <!--Footer Section-->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 pt-4 pb-3 text-center">
+                    <p><strong>© Copyright 2018 Tony Wible</strong></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap, Firebase, Moment.JS, & JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
+    <!-- <script src="./assets/javascript/particles.js"></script> -->
+    <!-- <script src="./assets/javascript/logic.js"></script> -->
+
+    <script type="text/javascript">
+        // Grab Survey Responses With Loop
+        $("#survey-submit").on("click", function(event) {
+          event.preventDefault();
+            var userScores=[];
+            for(var i=1; i < 11; i++){
+                var score = $("#q"+ String(i)).val()
+                userScores.push(score);
+            }
+            
+            console.log(userScores);
+            var postScores ={
+                scores: userScores
+            }
+            
+          // Store User Scores
+          $.post("/api/teams", postScores)
+            .then(function(data) {
+              console.log("Add Scores: ", data);
+            });
+        });
+      </script>
+
+
+</body>
+</html>

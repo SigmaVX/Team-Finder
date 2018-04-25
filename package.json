@@ -1,7 +1,7 @@
 {
   "name": "team-finder",
   "version": "1.0.0",
-  "description": "find the ideal online gamming clan or team",
+  "description": "GameRoster.com Team Finder | Find the ideal online gaming clan or competitive team",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

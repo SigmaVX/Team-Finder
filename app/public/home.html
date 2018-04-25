@@ -20,7 +20,6 @@
 </head>
 <body>
 
-    
     <!-- Particle Background -->
     <div id="particles-js">
 
@@ -36,7 +35,7 @@
                     <form class="col-md-8 col-12" id="sign-in-form">
                         <h3>Enter Your Info</h3>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email">
+                            <input type="name" class="form-control" id="inputName" placeholder="Name">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group">
@@ -75,7 +74,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Please enter a username and email so teams can contact you about a possible match.  Note: This is a test build so you do not need a GameRoster.com account or to enter real information. This data will not be retained.
+                    Please enter a name and In Game Name (IGN).  Note: This is a test build so you do not need a GameRoster.com account or to enter real information. This data will not be retained.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-block" data-dismiss="modal">Close</button>
@@ -87,8 +86,8 @@
 
     <!-- Bootstrap, Firebase, Moment.JS, & JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
-    <script type="text/javascript" src="./assets/javascript/particles.js"></script>
-    <script type="text/javascript" src="./assets/javascript/logic.js"></script>
+    <script type="application/javascript" src="./assets/javascript/particles.js"></script>
+    <script type="application/javascript" src="./assets/javascript/logic.js"></script>
 
 
     <script>    
@@ -96,24 +95,22 @@
     // Data Entered On Home Page
     $("#submit-info").on("click", function(event){
         event.preventDefault();
-        email = $("#inputEmail").val().trim();
-        ign = $("#inputIGN").val().trim();
-        if(email==="" || ign===""){
+        var name = $("#inputName").val().trim();
+        var ign = $("#inputIGN").val().trim();
+        if(name==="" || ign===""){
             $("#userModal").modal('show');
         } else{
-            var user = {  
-                email: "",
-                ign: ""
-                }
+            var userData = {  
+                name: name,
+                ign: ign
+                };
+            console.log(userData);
 
-            user.email = email;
-            user.ign = ign;
-                
-            $.post("/api/user", user).then(function(data){
+            $.post("/api/user/info", userData).then(function(data){
                 console.log("Captured: ", data);
                 window.open("./survey.html","_self");
             });
-        }
+        };
     });
 
     </script>

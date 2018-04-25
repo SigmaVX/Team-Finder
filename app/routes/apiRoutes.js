@@ -8,31 +8,29 @@ module.exports=function(app){
         return res.json(teamData);
     });
 
+    // Get User Data
+    app.get("/api/user", function(req, res){
+        return res.json(user);
+    });
+
     // Post Team Data
     app.post("/api/teams", function(req, res){
         var results = req.body;
         return res.json(teamData);
     });
-
-    // Post User Data
-    app.post("/api/user", function(req, res){
+    
+    // Post User Sign In Data
+    app.post("/api/user/info", function(req, res){
         var results = req.body;
+        user[0].name = results.name;
+        user[0].ign = results.ign;
+        return res.send(user);
+    });
         
-        if(results.name){
-            user[0].name = results.name;
-            user[0].ign = results.ign;
-            return res.json(user);
-        }
-
-        else if(results.scores){
-            user[0].scores = results.scores;
-            return res.json(user);
-        }
-
-        else{
-            return res.json(user);
-        }
-
-
+    // Post User Score Data
+    app.post("/api/user/scores", function(req, res){  
+        var results = req.body;
+        user[0].scores = results.scores;
+        return res.send(user);
     });
 }

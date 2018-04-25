@@ -3,10 +3,10 @@ body {
     margin: 0;
   }
   
-canvas {
+/* canvas {
     display: block;
     vertical-align: bottom;
-}
+} */
 
 .btn{
     font-weight: 700;

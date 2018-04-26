@@ -9,6 +9,8 @@ var path = require("path");
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
+
+// Set Up Static Files
 app.use(express.static("app/public"));
 
 
